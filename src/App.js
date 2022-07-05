@@ -1,11 +1,14 @@
 import React from "react"
+import { Routes, Route } from "react-router-dom"
 import Sidebar from "./components/Sidebar"
 import Editor from "./components/Editor"
 import { data } from "./data"
 import Split from "react-split"
 import {nanoid} from "nanoid"
-
-console.log(data);
+import Navbar from "./components/Navbar"
+import Home from "./components/Home"
+import Notes from "./components/Notes"
+import Contact from "./components/Contact"
 
 export default function App() {
 
@@ -67,7 +70,14 @@ export default function App() {
     }
     
     return (
-        <main>
+        <div className="app-container">
+            <Navbar />
+            <Routes>
+                <Route path="/" element={<Home />}></Route>
+                <Route path="notes" element={<Notes />}></Route>
+                <Route path="contact" element={<Contact />}></Route>   
+            </Routes>
+            {/* <main>
         {
             notes.length > 0 
             ?
@@ -104,6 +114,8 @@ export default function App() {
             </div>
             
         }
-        </main>
+        </main> */}
+        </div>
+        
     )
 }

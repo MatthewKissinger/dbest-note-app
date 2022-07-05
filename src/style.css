@@ -5,7 +5,49 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Karla', sans-serif;
+    font-family: 'Inter', sans-serif;
+}
+
+.app-container {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    justify-content: center;
+    height: 100vh;
+}
+
+nav {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    background-color: #F6F6F6;
+}
+
+.logo-container {
+    display: flex;
+    gap: .5rem;
+    justify-content: flex-start;
+    align-items: center;
+    color: #EC7160;
+    margin-bottom: 1rem;
+}
+
+.logo-image {
+    height: 2rem;
+}
+
+nav a {
+    margin-bottom: 1rem;
+    padding: .5rem;
+    text-decoration: none;
+    font-size: 1rem;
+    color: #303030;
+}
+
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5rem;
 }
 
 button:focus {
@@ -26,10 +68,6 @@ button:focus {
 .sidebar {
     width: 20%;
     height: 100vh;
-}
-
-.sidebar--note {
-    /* display: flex; */
 }
 
 .sidebar--header {
@@ -136,7 +174,7 @@ button:focus {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: whitesmoke;
+    background-color: #fff;
 }
 
 .delete-btn {
