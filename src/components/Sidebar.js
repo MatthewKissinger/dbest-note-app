@@ -8,9 +8,8 @@ export default function Sidebar(props) {
         const noteBodyArray = noteBody.split("\n");
 
         return (
-            <div key={note.id}>
-            <div
-                
+        <div className="note" key={note.id}>
+            <div 
                 className={`title ${
                     note.id === props.currentNote.id ? "selected-note" : ""
                 }`}
@@ -32,9 +31,14 @@ export default function Sidebar(props) {
     return (
         <section className="pane sidebar">
             <div className="sidebar--header">
-                <h3>Notes</h3>
-                <button className="new-note" onClick={props.newNote}>+</button>
+                <button 
+                    className="new-note" 
+                    onClick={props.newNote}
+                >Create Note</button>
             </div>
+            <hr></hr>
+            <h4 className="sidebar--h4">Notes</h4>
+            <hr></hr>
             {noteElements}
         </section>
     )
