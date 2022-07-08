@@ -1,11 +1,18 @@
 import React from "react"
 
+// each note needs it's own route 
+// use the nanoid given to each note as the url param
+
 export default function Sidebar(props) {
 
     const noteElements = props.notes.map((note, index) => {
        
         const noteBody = props.notes[index].body;
         const noteBodyArray = noteBody.split("\n");
+
+        const noteTitle = noteBodyArray.shift();
+
+        const noteTextSnippet = noteBodyArray.join(' ');
 
         return (
         <div className="note" key={note.id}>
@@ -15,7 +22,9 @@ export default function Sidebar(props) {
                 }`}
                 onClick={() => props.setCurrentNoteId(note.id)}
             >
-                <h4 className="text-snippet">{noteBodyArray[0]}</h4>
+                <h2 className="note-title">{noteTitle}</h2>
+                <h4 className="text-snippet">{noteTextSnippet.length > 50 ? noteTextSnippet.slice(0, 50) + '...' : noteTextSnippet}
+                </h4>
                 <button 
                     className="delete-btn"
                     // Your onClick event handler here

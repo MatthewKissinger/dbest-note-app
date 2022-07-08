@@ -22,7 +22,6 @@ export default function Notes() {
         const newNote = {
             id: nanoid(),
             body: "# Type your markdown note's title here",
-
         }
         setNotes(prevNotes => [newNote, ...prevNotes])
 
@@ -35,7 +34,7 @@ export default function Notes() {
             const newArray = [];
             for(let i = 0; i < oldNotes.length; i++) {
                 const oldNote = oldNotes[i]
-                
+
                 if (oldNote.id === currentNoteId) {
                     newArray.unshift({ ...oldNote, body: text });
                 } else {

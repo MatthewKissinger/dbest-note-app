@@ -206,6 +206,7 @@ hr {
 
 .note {
     margin: .5rem;
+    overflow-wrap: normal;
 }
 
 .first-note {
@@ -223,14 +224,16 @@ hr {
 }
 
 .title {
-    overflow: hidden;
+    height: auto;
+    position: relative;
     width: 100%;
     cursor: pointer;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
     border-radius: 6px;
-    padding: 1rem;
+    padding: .5rem .75rem;
+    word-wrap: break-word;
 }
 
 .title--delete {
@@ -249,13 +252,11 @@ hr {
 }
 
 .text-snippet {
-    padding-inline: 5px;
-    font-size: 0.8rem;
+    margin-top: 0;
+    font-size: 0.75rem;
     font-weight: 400;
     line-height: 1.2rem;
     color: #898989;
-    white-space: nowrap;
-    overflow: hidden;
     text-overflow: ellipsis;
 }
 
@@ -265,7 +266,6 @@ hr {
 
 .selected-note .text-snippet {
     color: #898989;
-    font-weight: 700;
 }
 
 .gutter {
@@ -297,7 +297,15 @@ hr {
     background-color: #fff;
 }
 
+.note-title {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
 .delete-btn {
+    position: absolute;
+    right: 5%;
+    top: 42%;
     display: none;
     background: none;
     border: none;
