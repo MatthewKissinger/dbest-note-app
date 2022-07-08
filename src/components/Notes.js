@@ -19,9 +19,17 @@ export default function Notes() {
     }, [notes])
     
     function createNewNote() {
+        const date = new Date();
+        const month = date.getMonth() + 1;
+        const day = date.getDate();
+        const year = date.getFullYear();
+
+        let fullDate = `${month}/${day}/${year}`;
+
         const newNote = {
             id: nanoid(),
             body: "# Type your markdown note's title here",
+            dateCreated: fullDate
         }
         setNotes(prevNotes => [newNote, ...prevNotes])
 

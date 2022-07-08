@@ -1,7 +1,5 @@
 import React from "react"
-
-// each note needs it's own route 
-// use the nanoid given to each note as the url param
+import { Link } from "react-router-dom";
 
 export default function Sidebar(props) {
 
@@ -15,25 +13,28 @@ export default function Sidebar(props) {
         const noteTextSnippet = noteBodyArray.join(' ');
 
         return (
-        <div className="note" key={note.id}>
-            <div 
-                className={`title ${
-                    note.id === props.currentNote.id ? "selected-note" : ""
-                }`}
-                onClick={() => props.setCurrentNoteId(note.id)}
-            >
-                <h2 className="note-title">{noteTitle}</h2>
-                <h4 className="text-snippet">{noteTextSnippet.length > 50 ? noteTextSnippet.slice(0, 50) + '...' : noteTextSnippet}
-                </h4>
-                <button 
-                    className="delete-btn"
-                    // Your onClick event handler here
-                    onClick={event => props.deleteNote(event, note.id)}
+        <Link style={{textDecoration: "none", color: "#898989"}} to={note.id} key={note.id}>
+            <div className="note" key={note.id}>
+                <div 
+                    className={`title ${
+                        note.id === props.currentNote.id ? "selected-note" : ""
+                    }`}
+                    onClick={() => props.setCurrentNoteId(note.id)}
                 >
-                    <i className="gg-trash trash-icon"></i>
-                </button>
+                    <h2 className="note-title">{noteTitle}</h2>
+                    <h4 className="text-snippet">{noteTextSnippet.length > 50 ? noteTextSnippet.slice(0, 50) + '...' : noteTextSnippet}
+                    </h4>
+                    <p>{note.dateCreated}</p>
+                    <button 
+                        className="delete-btn"
+                        // Your onClick event handler here
+                        onClick={event => props.deleteNote(event, note.id)}
+                    >
+                        <i className="gg-trash trash-icon"></i>
+                    </button>
+                </div>
             </div>
-        </div>
+        </Link>  
         )
     })
 
