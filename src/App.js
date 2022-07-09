@@ -6,8 +6,9 @@ import Notes from "./components/Notes"
 import Contact from "./components/Contact"
 
 // TODO list
-// 1) style active navlink -- DONE
-// 2) update the create note function to add a title, text-snippet and date of creation
+// 1) re-style the side panel feature 
+// replace the styling with an arrow button
+// when clicking the arrow it either collapses or expands the side bar component
 
 export default function App() {
     

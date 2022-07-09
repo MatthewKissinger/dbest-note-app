@@ -1,7 +1,7 @@
 import React from "react"
 import Sidebar from "./Sidebar"
 import Editor from "./Editor"
-import Split from "react-split"
+// import Split from "react-split"
 import {nanoid} from "nanoid"
 
 export default function Notes() {
@@ -25,6 +25,7 @@ export default function Notes() {
         const year = date.getFullYear();
 
         let fullDate = `${month}/${day}/${year}`;
+
 
         const newNote = {
             id: nanoid(),
@@ -73,11 +74,12 @@ export default function Notes() {
             {
             notes.length > 0 
             ?
-            <Split 
-                sizes={[30, 70]} 
-                direction="horizontal" 
-                className="split"
-            >
+            // <Split 
+            //     sizes={[30, 70]} 
+            //     direction="horizontal" 
+            //     className="split"
+            // >
+            <div className="split">
                 <Sidebar
                     notes={notes}
                     currentNote={findCurrentNote()}
@@ -85,6 +87,9 @@ export default function Notes() {
                     newNote={createNewNote}
                     deleteNote={deleteNote}
                 />
+                <div className="arrow-container">
+                    <img src="#" alt="arrow"></img>arrow
+                </div>
                 {
                     currentNoteId && 
                     notes.length > 0 &&
@@ -93,7 +98,8 @@ export default function Notes() {
                         updateNote={updateNote} 
                     />
                 }
-            </Split>
+            </div>
+            // </Split>
             :
             <div className="no-notes">
                 <h1>You have no notes</h1>
