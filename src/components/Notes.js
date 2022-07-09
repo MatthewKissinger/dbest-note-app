@@ -14,6 +14,8 @@ export default function Notes() {
         (notes[0] && notes[0].id) || ""
     )
 
+    const [sidebarVisible, setSidebarVisible] = React.useState(true);
+
     React.useEffect(() => {
         localStorage.setItem("notes", JSON.stringify(notes));
     }, [notes])
@@ -69,26 +71,36 @@ export default function Notes() {
         }) || notes[0]
     }
 
+    function handleArrow() {
+        console.log('you clicked the arrow');
+
+        setSidebarVisible(prevState => !prevState);
+    }
+
     return (
         <main>
             {
             notes.length > 0 
             ?
-            // <Split 
-            //     sizes={[30, 70]} 
-            //     direction="horizontal" 
-            //     className="split"
-            // >
             <div className="split">
-                <Sidebar
+                {sidebarVisible && <Sidebar
                     notes={notes}
                     currentNote={findCurrentNote()}
                     setCurrentNoteId={setCurrentNoteId}
                     newNote={createNewNote}
                     deleteNote={deleteNote}
-                />
-                <div className="arrow-container">
-                    <img src="#" alt="arrow"></img>arrow
+                />}
+                <div className="vertical-split">
+                    <div className="arrow-container"
+                        onClick={handleArrow}
+                    >
+                        {sidebarVisible 
+                        ? 
+                        <img src={require("../images/arrow-left-icon.png")} alt="arrow-left"></img> 
+                        :
+                        <img src={require("../images/arrow-right-icon.png")} alt="arrow-right"></img>}
+                        
+                    </div>
                 </div>
                 {
                     currentNoteId && 
@@ -99,7 +111,6 @@ export default function Notes() {
                     />
                 }
             </div>
-            // </Split>
             :
             <div className="no-notes">
                 <h1>You have no notes</h1>

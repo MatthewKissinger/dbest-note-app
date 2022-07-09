@@ -164,10 +164,6 @@ button:focus {
     overflow-y: auto;
 }
 
-.pane .editor {
-    margin-left: 2rem;
-}
-
 .sidebar {
     width: 20%;
     height: 100vh;
@@ -221,9 +217,35 @@ hr {
     padding: 1rem;
 }
 
+.vertical-split {
+    position: relative;
+    width: 1px;
+    background-color: #e7e7e9;
+}
+
+.arrow-container {
+    position: absolute;
+    left: -15px;
+    top: 2rem;
+    background-color: white;
+    height: 30px;
+    width: 30px;
+    border: 1px solid #e7e7e9;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.arrow-container img {
+    height: 10px;
+}
+
 .editor {
     width: 80%;
     height: 100vh;
+    margin-left: 2rem;
 }
 
 .title {
