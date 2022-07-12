@@ -5,10 +5,7 @@ import Home from "./components/Home"
 import Notes from "./components/Notes"
 import Contact from "./components/Contact"
 
-// TODO list
-// 1) re-style the side panel feature 
-// replace the styling with an arrow button
-// when clicking the arrow it either collapses or expands the side bar component
+// add the validation for the contact form
 
 export default function App() {
     

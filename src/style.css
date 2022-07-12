@@ -148,6 +148,7 @@ textarea {
     color: white;
     border-radius: 6px;
     border: none;
+    cursor: pointer;
 }
 
 button:focus {
